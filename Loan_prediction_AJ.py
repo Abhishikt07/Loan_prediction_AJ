@@ -46,13 +46,13 @@ print(df['Loan_Status_label'].value_counts())
 print(round(len(df[df['Loan_Status_label']==0])/len(df)*100, 2))
 print(round(len(df[df['Loan_Status_label']==1])/len(df)*100, 2))
 
-# # Analyze categorical variables
-# categorical_columns = [col for col in df.columns if 'job_' in col or 'education_' in col or 'marital_' in col]
-# for col in categorical_columns:
-#     sns.countplot(x=col, data=df)
-#     plt.title(f'Distribution of {col}')
-#     plt.xticks(rotation=90)
-#     plt.show()
+# Analyze categorical variables
+categorical_columns = [col for col in df.columns if 'job_' in col or 'education_' in col or 'marital_' in col]
+for col in categorical_columns:
+     sns.countplot(x=col, data=df)
+     plt.title(f'Distribution of {col}')
+     plt.xticks(rotation=90)
+     plt.show()
 
 plt.pie(df['Loan_Status_label'].value_counts(), autopct='%1.0f%%',labels=['Not Eligible','Eligible'], 
             startangle=60,shadow=True,explode=[0,0.2])
